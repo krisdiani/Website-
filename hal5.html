@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenali Tone Kulit Anda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #fff5f7, #ffebf0);
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .hero {
+            background: url('https://images.unsplash.com/photo-1593787811448-0f4d0c43b0e0') no-repeat center/cover;
+            padding: 100px 20px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 105, 180, 0.5);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-family: 'Lora', serif;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+        }
+        .content {
+            padding: 40px;
+        }
+        h2 {
+            font-family: 'Lora', serif;
+            color: #ff69b4;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        p {
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            text-align: center;
+        }
+        .quiz {
+            background: #fff0f5;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .question {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        .question label {
+            display: block;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .question select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ff69b4;
+            border-radius: 8px;
+            font-size: 1em;
+            color: #333;
+            background: #fff;
+            transition: border-color 0.3s;
+        }
+        .question select:focus {
+            border-color: #ff1493;
+            outline: none;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            background: #ff69b4;
+            color: #fff;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background: #ff1493;
+            transform: translateY(-3px);
+        }
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f0e6fa;
+            color: #333;
+            text-align: center;
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .tone-info {
+            margin-top: 40px;
+        }
+        .tone-card {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #ffcccb;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            gap: 20px;
+        }
+        .tone-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .tone-card-content {
+            flex: 1;
+        }
+        .tone-card h3 {
+            color: #ff69b4;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .contact {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .contact a {
+            display: inline-block;
+            color: #ff69b4;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .contact a:hover {
+            color: #ff1493;
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+            }
+            .hero {
+                padding: 60px 15px;
+            }
+            h1 {
+                font-size: 2.4em;
+            }
+            .content {
+                padding: 20px;
+            }
+            .tone-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .tone-card img {
+                width: 80px;
+                height: 80px;
+            }
+        .back-button-wrapper {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 14px 30px;
+    background: linear-gradient(to right, #ffb6c1, #ff69b4);
+    color: #fff;
+    font-weight: 500;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.1em;
+    box-shadow: 0 6px 15px rgba(255, 105, 180, 0.3);
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.back-button:hover {
+    background: linear-gradient(to right, #ff69b4, #ff1493);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.4);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Kenali Tone Kulit Anda</h1>
+                <p class="subtitle">Temukan tone kulit Anda dan pilih produk kecantikan yang sempurna!</p>
+            </div>
+        </div>
+        <div class="content">
+            <h2>Cek Tone Kulit</h2>
+            <p>Jawab beberapa pertanyaan berikut untuk mengetahui apakah tone kulit Anda cool, warm, atau neutral.</p>
+            <div class="quiz">
+                <div class="question">
+                    <label>1. Bagaimana kulit Anda bereaksi terhadap sinar matahari?</label>
+                    <select id="q1">
+                        <option value="0">Pilih jawaban...</option>
+                        <option value="cool">Mudah terbakar, sulit kecokelatan</option>
+                        <option value="warm">Mudah kecokelatan, jarang terbakar</option>
+                        <option value="neutral">Kadang terbakar, kadang kecokelatan</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>2. Apa warna pembuluh darah di pergelangan tangan Anda?</label>
+                    <select id="q2">
+                        <option value="0">Pilih jawaban...</option>
+                        <option value="cool">Kebiruan atau ungu</option>
+                        <option value="warm">Kehijauan</option>
+                        <option value="neutral">Campuran atau sulit dilihat</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>3. Perhiasan apa yang paling cocok dengan kulit Anda?</label>
+                    <select id="q3">
+                        <option value="0">Pilih jawaban...</option>
+                        <option value="cool">Perak atau platinum</option>
+                        <option value="warm">Emas atau rose gold</option>
+                        <option value="neutral">Cocok dengan keduanya</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>4. Bagaimana kulit Anda terlihat dengan pakaian putih?</label>
+                    <select id="q4">
+                        <option value="0">Pilih jawaban...</option>
+                        <option value="cool">Lebih cerah dengan putih bersih</option>
+                        <option value="warm">Lebih cocok dengan krem atau ivory</option>
+                        <option value="neutral">Cocok dengan keduanya</option>
+                    </select>
+                </div>
+                <button onclick="checkSkinTone()">Cek Hasil</button>
+            </div>
+            <div id="result"></div>
+            
+            <div class="tone-info">
+                <h2>Jenis Tone Kulit & Rekomendasi</h2>
+                <div class="tone-card">
+                    <img src="Cooltone.jpg" alt="Cool Tone">
+                    <div class="tone-card-content">
+                        <h3>Cool Tone</h3>
+                        <p>Kulit dengan undertone dingin memiliki hint merah muda atau biru. Cocok dengan lipstik berry, eyeshadow biru, dan foundation berbasis pink. Skincare: Gunakan produk dengan niacinamide untuk mencerahkan.</p>
+                    </div>
+                </div>
+                <div class="tone-card">
+                    <img src="Warm.jpg" alt="Warm Tone">
+                    <div class="tone-card-content">
+                        <h3>Warm Tone</h3>
+                        <p>Kulit dengan undertone hangat memiliki hint kuning atau emas. Pilih lipstik coral, eyeshadow cokelat, dan foundation berbasis kuning. Skincare: Gunakan produk dengan vitamin C untuk kilau alami.</p>
+                    </div>
+                </div>
+                <div class="tone-card">
+                    <img src="Natural.jpg" alt="Neutral Tone">
+                    <div class="tone-card-content">
+                        <h3>Neutral Tone</h3>
+                        <p>Kulit dengan undertone netral cocok dengan berbagai warna makeup, seperti nude atau pink. Skincare: Fokus pada hidrasi dengan produk berbahan hyaluronic acid.</p>
+                    </div>
+                </div>
+       
+        </div>
+    </div>
+
+    <script>
+        function checkSkinTone() {
+            const q1 = document.getElementById('q1').value;
+            const q2 = document.getElementById('q2').value;
+            const q3 = document.getElementById('q3').value;
+            const q4 = document.getElementById('q4').value;
+            const resultDiv = document.getElementById('result');
+
+            // Validasi input
+            if (q1 === '0' || q2 === '0' || q3 === '0' || q4 === '0') {
+                resultDiv.style.display = 'block';
+                resultDiv.textContent = 'Harap jawab semua pertanyaan terlebih dahulu!';
+                resultDiv.style.background = '#ffcccb';
+                return;
+            }
+
+            // Hitung tone kulit
+            const answers = [q1, q2, q3, q4];
+            const coolCount = answers.filter(a => a === 'cool').length;
+            const warmCount = answers.filter(a => a === 'warm').length;
+            const neutralCount = answers.filter(a => a === 'neutral').length;
+
+            let tone = '';
+            let description = '';
+            let recommendation = '';
+
+            if (coolCount >= 3) {
+                tone = 'Cool Tone';
+                description = 'Kulit Anda memiliki undertone dingin dengan hint merah muda atau biru.';
+                recommendation = 'Gunakan lipstik berry, eyeshadow biru, dan foundation dengan undertone pink. Skincare: Pilih produk dengan niacinamide untuk mencerahkan kulit.';
+            } else if (warmCount >= 3) {
+                tone = 'Warm Tone';
+                description = 'Kulit Anda memiliki undertone hangat dengan hint kuning atau emas.';
+                recommendation = 'Pilih lipstik coral, eyeshadow cokel cli, dan foundation dengan undertone kuning. Skincare: Gunakan serum vitamin C untuk kilau alami.';
+            } else {
+                tone = 'Neutral Tone';
+                description = 'Kulit Anda memiliki undertone netral, perpaduan cool dan warm.';
+                recommendation = 'Anda cocok dengan berbagai warna makeup, seperti nude atau pink. Skincare: Gunakan produk dengan hyaluronic acid untuk hidrasi maksimal.';
+            }
+
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `
+                <strong>Hasil: ${tone}</strong><br>
+                ${description}<br>
+                <em>Rekomendasi: ${recommendation}</em>
+            `;
+            resultDiv.style.background = '#e6e6fa';
+        }
+    </script>
+    <div class="back-button-wrapper">
+  <a href="hal6.html" class="back-button">Kembali ke Halaman Sebelumnya</a>
+</div>
+</body>
+</html>
+    

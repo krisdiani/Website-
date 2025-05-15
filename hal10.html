@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formulir Pink Estetik</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffe4ec, #fff0f5);
+      color: #333;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 40px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(255, 182, 193, 0.3);
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #d63384;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #a94464;
+    }
+
+    input, textarea {
+      padding: 14px;
+      border: 1px solid #f7c2d2;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      background-color: #fffafc;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #ff69b4;
+      box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);
+      outline: none;
+    }
+
+    button {
+      padding: 14px;
+      background: linear-gradient(135deg, #ff69b4, #ff85c1);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(255, 105, 180, 0.3);
+    }
+
+    .thank-you {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #d63384;
+      margin-top: 30px;
+      display: none;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        margin: 30px 20px;
+        padding: 30px 20px;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+    .back-button-wrapper {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(to right, #fcb6d2, #f9a1c4);
+  color: white;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1rem;
+  box-shadow: 0 6px 16px rgba(255, 105, 180, 0.25);
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: linear-gradient(to right, #ffbcd9, #ffc3e0);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 105, 180, 0.35);
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Formulir</h2>
+    <form id="formulir">
+      <label for="nama">Nama Lengkap</label>
+      <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="contoh@email.com" required />
+
+      <label for="pesan">Pesan</label>
+      <textarea id="pesan" name="pesan" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
+
+      <button type="submit">Kirim Pesan</button>
+    </form>
+
+    <div class="thank-you" id="thankYouMessage">
+      Terimakasih Telah mengunjungi Website kami
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('formulir');
+    const thankYouMessage = document.getElementById('thankYouMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Mencegah reload
+      form.style.display = 'none'; // Sembunyikan form
+      thankYouMessage.style.display = 'block'; // Tampilkan pesan
+    });
+  </script>
+  <div class="back-button-wrapper">
+  <a href="hal6.html" class="back-button">← Kembali</a>
+</div>
+</body>
+</html>
+  
